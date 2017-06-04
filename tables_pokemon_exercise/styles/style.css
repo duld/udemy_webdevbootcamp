@@ -1,7 +1,12 @@
 table {
-    border: 1px solid
+    border: 1px solid;
 }
 
 table th{
     font-weight: bold;
+}
+
+td, th {
+    border: 1px solid;
+    text-align: center;
 }
