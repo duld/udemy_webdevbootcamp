@@ -1,0 +1,41 @@
+<!<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Form Exercise</title>
+</head>
+
+<body>
+	<h1>Register</h1>
+	<form>
+		<!--First name-->
+		<label for="firstName">First Name:</label>
+		<input name="firstName" type="text" placeholder="John">
+
+		<!--Last name-->
+		<label for="lastName">Last Name:</label>
+		<input name="lastName" type="text" placeholder="Smith">
+		<br>
+
+		<!--Gender-->
+		<label id="genderRadio">
+			Male
+			<input name="genderSelectRadio" type="radio" value="male">
+			Female
+			<input name="genderSelectRadio" type="radio" value="female">
+			Other
+			<input name="genderSelectRadio" type="radio" value="other">
+		</label>
+		<br>
+
+		<!--Login-->
+		<label for="userEmail">Email:</label>
+		<input name="userEmail" type="email" placeholder="your email" required>
+
+		<label for="userPassword">Password:</label>
+		<input name="userPassword" type="password" minlength="5" required>
+	</form>
+</body>
+
+</html>
