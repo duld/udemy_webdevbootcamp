@@ -11,17 +11,17 @@
 	<form>
 		<!--First name-->
 		<label for="firstName">First Name:</label>
-		<input name="firstName" type="text" placeholder="John">
+		<input id="firstName" type="text" name="firstName" placeholder="John" required>
 
 		<!--Last name-->
 		<label for="lastName">Last Name:</label>
-		<input name="lastName" type="text" placeholder="Smith">
+		<input id="lastName" type="text" name="lastName" placeholder="Smith" required>
 		<br>
 
 		<!--Gender-->
 		<label id="genderRadio">
 			Male
-			<input name="genderSelectRadio" type="radio" value="male">
+			<input name="genderSelectRadio" type="radio" value="male" checked>
 			Female
 			<input name="genderSelectRadio" type="radio" value="female">
 			Other
@@ -30,11 +30,74 @@
 		<br>
 
 		<!--Login-->
-		<label for="userEmail">Email:</label>
-		<input name="userEmail" type="email" placeholder="your email" required>
+		<label for="user_email">Email:</label>
+		<input id="user_email" name="user_email" type="email" placeholder="your email" required>
 
-		<label for="userPassword">Password:</label>
-		<input name="userPassword" type="password" minlength="5" required>
+		<label for="user_password">Password:</label>
+		<input name="user_password" type="password" minlength="5" required>
+		<br>
+
+		<!--Birthday-->
+		<label>Birthday:
+			
+			<!--birthday month-->
+			<select name="birthday_month">
+				<option value="Jan">Jan</option>
+				<option value="Feb">Feb</option>
+				<option value="Mar">Mar</option>
+				<option value="Apr">Apr</option>
+				<option value="May">May</option>
+				<option value="Jun">Jun</option>
+				<option value="Jul">Jul</option>
+				<option value="Aug">Aug</option>
+				<option value="Sep">Sep</option>
+				<option value="Oct">Oct</option>
+				<option value="Nov">Nov</option>
+				<option value="Dec">Dec</option>
+			</select>
+			
+			<!--birthday day-->
+			<select name="birthday_day">
+				<option value="1">01</option>
+				<option value="2">02</option>
+				<option value="3">03</option>
+				<option value="4">04</option>
+				<option value="5">05</option>
+				<option value="6">06</option>
+				<option value="7">07</option>
+				<option value="8">06</option>
+				<option value="9">09</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+			</select>
+			
+			<!--birthday year-->
+			<select name="birthday_year">
+				<option value="2017">2017</option>
+				<option value="2016">2016</option>
+				<option value="2015">2015</option>
+				<option value="2014">2014</option>
+				<option value="2013">2013</option>
+				<option value="2012">2012</option>
+				<option value="2011">2011</option>
+				<option value="2010">2010</option>
+				<option value="2009">2009</option>
+				<option value="2008">2008</option>
+				<option value="2007">2007</option>
+				<option value="2006">2006</option>
+			</select>
+			<br>
+			
+			<!--terms checkbox-->
+			<label for="terms_checkbox">I agree to the terms and conditions</label>
+			<input id="terms_checkbox" name="terms_checkbox" type="checkbox" required>
+			<br>
+
+			<!--submit form-->
+			<input id="form_submit_button" type="submit" value="submit">
+		</label>
 	</form>
 </body>
 
