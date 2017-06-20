@@ -1,0 +1,24 @@
+body {
+    margin: auto;
+    width: 75%;
+    border: 12px solid gray;
+}
+
+
+article {
+    padding: 15px;
+}
+
+article .date {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+article h1 {
+    text-transform: capitalize;
+}
+
+article .intro {
+    border-left: 4px solid gray;
+    padding: 3px;
+}
