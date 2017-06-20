@@ -1,12 +1,12 @@
 body {
-    margin: auto;
+    margin: 20px auto;
     width: 75%;
-    border: 12px solid gray;
+    border: 20px solid gray;
 }
 
 
 article {
-    padding: 15px;
+    padding: 15px 15px 2px 15px;
 }
 
 article .date {
@@ -21,4 +21,8 @@ article h1 {
 article .intro {
     border-left: 4px solid gray;
     padding: 3px;
+}
+
+hr {
+    margin-bottom: 0;
 }
