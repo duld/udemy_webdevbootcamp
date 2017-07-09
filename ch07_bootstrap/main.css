@@ -1,0 +1,8 @@
+.container {
+    width: 90%;
+}
+
+.dropdown-menu {
+    min-width : 50px;
+    width : 100px;
+}

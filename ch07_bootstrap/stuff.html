@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset='utf-8'>
+  <title>My Page</title>
+  <link rel='stylesheet' type='text/css' href='bootstrap.css'>
+  <style>
+    .fill {
+      background-color: orange;
+      border: 2px dashed white;
+      height: 50px;
+    }
+
+    span {
+      margin : 10px auto;
+    }
+
+    .yellow {
+      background-color: yellow;
+      text-align: center;
+      border: 1px black dashed;
+      max-width: 90%;
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav class='navbar navbar-default'>
+    <div class='container'>
+      <div class='navbar-header'>
+        <a class='navbar-brand' href='#'>HERRO</a>
+      </div> <!--navbar header-->
+      <div class='collapse navbar-collapse' id='myNav'>
+        <ul class='nav navbar-nav'>
+          <li><a href='#'>About</a></li>
+          <li><a href='#'>Contact</a></li>
+        </ul>
+        <ul class='nav navbar-nav navbar-right'>
+          <li><a href='#'>Sign Up</a></li>
+          <li><a href='#'>Log In</a></li>
+        </ul>
+    </div>
+  </nav>
+
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-3 col-sm-6 col-xs-12 fill'>Hello</div>
+      <div class='col-md-3 col-sm-6 col-xs-12 fill'>
+        <div class='row'>
+          <div class='col-md-6 yellow center-block'>Accept</div>
+          <div class='col-md-6 yellow center-block'>Decline</div>
+        </div>
+      </div>
+      <div class='col-md-3 col-sm-6 col-xs-12 fill'>Hello</div>
+      <div class='col-md-3 col-sm-6 col-xs-12 fill'>Hello</div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script src='bootstrap.js'></script>
+</body>
+
+</html>
