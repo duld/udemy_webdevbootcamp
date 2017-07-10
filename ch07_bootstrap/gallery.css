@@ -10,6 +10,11 @@ body {
     color: white;
 }
 
+
+/*
+display flex and flex-wrap: wrap are required to wrap the content
+correctly.
+*/
 .flex {
     display: flex;
     flex-wrap: wrap;
