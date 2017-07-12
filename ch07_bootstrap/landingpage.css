@@ -2,11 +2,11 @@ body {
     background : url("https://source.unsplash.com/xulIYVIbYIc");
     background-size: cover;
     background-position: center;
+    font-family: 'Lato', sans-serif;
+    color: white;
 }
 
 #content {
     text-align: center;
     padding-top: 25%;
-    color: white;
-    font-family: 'Lato', sans-serif;
 }
