@@ -154,3 +154,89 @@ function kebabToSnake(kebab) {
 // var timer = setInterval(timer, 100);
 
 
+
+function newTodoItem(){
+	while(true){
+		var todoItem = prompt("What is the 'todo' you would like to add? or type 'quit' to cancel.");
+		
+		if (todoItem.toLowerCase() !== "quit"){
+			todo.push(todoItem);
+			console.log("-- " + todoItem + " was added to list!");
+		} else {
+			break;
+		}
+	}
+}
+
+function printTodoList() {
+	todo.forEach( (val, index) => console.log(index + ": " + val));
+}
+
+function deleteTodo(){
+	var index = Number(prompt("Specify the index to delete"));
+
+	if (index < todo.length && index > todo.length * -1)
+		todo.splice(index, 1);
+}
+
+function startTodo(){
+	var userInput;
+
+	while(true){
+
+		var modeSelect = prompt("What would you like to do? Type 'quit' to exit");
+
+		if (modeSelect === 'quit')
+			break;
+		else if (modeSelect == 'new')
+			newTodoItem();
+
+		else if (modeSelect == 'list')
+			printTodoList();
+
+		else if (modeSelect == 'delete')
+			deleteTodo()
+	}
+	console.log("-- exiting todo app");
+}
+
+function clearToDo() {
+	todo = [];
+}
+
+// var todo = ["do dishes", 'vacuum'];
+// startTodo();
+
+// Array problem Set
+var myArr = [1, 4, 6, 8, 9, 0, 11];
+
+
+function printReverse(array) {
+	for (var i = array.length - 1; i >= 0; i--){
+		console.log(array[i]);
+	}
+}
+
+// printReverse(myArr);
+
+function sumArray(array){
+	var sum = 0;
+	array.forEach((val) => {
+		sum += val;
+	});
+	return sum;
+}
+
+// console.log(sumArray(myArr));
+
+function max(array) {
+	var largestSoFar;
+
+	array.forEach((val) => {
+		if (val > largestSoFar || largestSoFar == undefined)
+			largestSoFar = val;
+	});
+	return largestSoFar;
+}
+
+// console.log(max(myArr));
