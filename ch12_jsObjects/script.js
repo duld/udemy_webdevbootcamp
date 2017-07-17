@@ -28,13 +28,13 @@ var someObject = {
     etc...
 */
 
-var movies = [
-    {title : "SpiderMan: Homecoming", hasWatched : false, rating : 4.5},
-    {title : "Gladiator", hasWatched : true, rating : 4.5},
-    {title : "War for the Planet of the Apes", hasWatched : false, rating : 5},
-    {title : "Baby Driver", hasWatched : false, rating : 4},
-    {title : "Cars 3", hasWatched : false, rating : 3}
-];
+// var movies = [
+//     {title : "SpiderMan: Homecoming", hasWatched : false, rating : 4.5},
+//     {title : "Gladiator", hasWatched : true, rating : 4.5},
+//     {title : "War for the Planet of the Apes", hasWatched : false, rating : 5},
+//     {title : "Baby Driver", hasWatched : false, rating : 4},
+//     {title : "Cars 3", hasWatched : false, rating : 3}
+// ];
 
 function listMovies(){
     movies.forEach( (movie) => {
@@ -45,3 +45,15 @@ function listMovies(){
 
 // listMovies();
 
+
+var comments = {};
+
+// comments.data = ["Good Job!", "bye", "Lame...", "Good Job!", "Bye", "LAME!"];
+
+comments.print = function() {
+    this.data.forEach( (val)=> {
+        console.log(val);
+    })
+}
+
+// comments.print();
