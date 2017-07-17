@@ -20,3 +20,11 @@ var selP4 = document.querySelectorAll("body #first");
 function toggleAlign(elem){
     elem.classList.toggle('right-align');
 }
+
+// https://www.petfinder.com/wp-content/uploads/2012/11/153558006-tips-healthy-cat-632x475.jpg
+
+function updateLinks(links){
+    for (var i=0; i < links.length; i++){
+        links[i].setAttribute('href', 'https://www.bing.com');
+    }
+}
