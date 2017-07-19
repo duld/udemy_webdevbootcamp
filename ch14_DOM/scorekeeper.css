@@ -1,7 +1,9 @@
 .winner {
-    color : Green;
+    background-color: green;
+    color : white;
 }
 
-.loser {
-    color : red;
+.draw {
+    background-color: gray;
+    color : #f0fcb5;
 }
