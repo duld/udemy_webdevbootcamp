@@ -36,6 +36,12 @@ reset_btn.addEventListener('click', resetScores, false);
 // play to counter update field
 playToField.addEventListener('change', function () {
     playToCounter_max = Number(this.value);
+   
+    // only accept values larger than 1.
+    if (playToCounter_max < 1){
+        playToCounter_max = playToCounter;
+        this.value = playToCounter_max;
+    }
     resetScores();
 }, false);
 
