@@ -111,7 +111,3 @@ function enablePlayerBtns(){
     p1_btn.disabled = false;
     p2_btn.disabled = false;
 }
-
-// update play to counter
-
-
