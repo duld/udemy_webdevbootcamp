@@ -46,6 +46,13 @@ function resetScores(){
     p1_score = 0;
     p2_score = 0;
 
+    // toggle win state class off
+    p1_scoreElem.classList.remove('winner');
+    p1_scoreElem.classList.remove('draw');
+
+    p2_scoreElem.classList.remove('winner');
+    p2_scoreElem.classList.remove('draw');
+
     // we will subtract this in the updatePlayToCounter() call
     playToCounter = playToCounter_max + 1;
 
@@ -81,10 +88,14 @@ function declareWinner(){
 
     if (p1_score > p2_score){
         result = 'Player 1 Won!';
+        p1_scoreElem.classList.toggle('winner');
     } else if (p1_score === p2_score) {
         result = "It's a Tie!";
+        p1_scoreElem.classList.toggle('draw');
+        p2_scoreElem.classList.toggle('draw');
     } else {
         result = "Player 2 Won!";
+        p2_scoreElem.classList.toggle('winner');
     }
 
     resultMessage.innerHTML = result;
