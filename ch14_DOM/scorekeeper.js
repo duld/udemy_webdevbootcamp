@@ -7,6 +7,7 @@ var p2_btn = document.querySelector('#p2-btn');
 var reset_btn = document.querySelector('#reset-btn');
 var p1_scoreElem = document.querySelector("#p1-score");
 var p2_scoreElem = document.querySelector("#p2-score");
+var playToField = document.querySelector("input[type='number']");
 var p1_score = 0;
 var p2_score = 0;
 var playToCounter_max = 7;
@@ -31,6 +32,12 @@ p2_btn.addEventListener('click', () => {
 
 // Reset Button
 reset_btn.addEventListener('click', resetScores, false);
+
+// play to counter update field
+playToField.addEventListener('change', function () {
+    playToCounter_max = Number(this.value);
+    resetScores();
+}, false);
 
 
 // reset score
@@ -83,7 +90,6 @@ function declareWinner(){
     resultMessage.innerHTML = result;
 }
 
-
 // Disable/Enable buttons
 function disablePlayerBtns(){
     p1_btn.setAttribute('disabled', true);
@@ -94,4 +100,7 @@ function enablePlayerBtns(){
     p1_btn.disabled = false;
     p2_btn.disabled = false;
 }
+
+// update play to counter
+
 
