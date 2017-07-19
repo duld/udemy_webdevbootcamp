@@ -5,6 +5,8 @@ console.log("script loaded");
 var p1_btn = document.querySelector('#p1-btn');
 var p2_btn = document.querySelector('#p2-btn');
 var reset_btn = document.querySelector('#reset-btn');
+var p1_scoreElem = document.querySelector("#p1-score");
+var p2_scoreElem = document.querySelector("#p2-score");
 var p1_score = 0;
 var p2_score = 0;
 var playToCounter_max = 7;
@@ -60,21 +62,23 @@ function updatePlayToCounter() {
     document.querySelector('#play-to-counter').innerHTML = 'Playing to: ' + playToCounter;
 }
 
-// add score board
+// add score to board
 function updateScore(){
-    document.querySelector("#score").innerHTML = p1_score + " to " + p2_score;
+    p1_scoreElem.innerHTML = p1_score;
+    p2_scoreElem.innerHTML = p2_score;
 }
 
 // display win message.
 function declareWinner(){
     var result;
 
-    if (p1_score > p2_score)
+    if (p1_score > p2_score){
         result = 'Player 1 Won!';
-    else if (p1_score === p2_score)
+    } else if (p1_score === p2_score) {
         result = "It's a Tie!";
-    else
+    } else {
         result = "Player 2 Won!";
+    }
 
     resultMessage.innerHTML = result;
 }
