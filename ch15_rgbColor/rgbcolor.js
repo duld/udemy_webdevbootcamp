@@ -31,6 +31,10 @@ for (var i = 0; i < squares.length; i++) {
 
 
 // generate random rgb color
-function randomRGB(){
+function randomColor(){
     return Math.floor(Math.random() * 255);
+}
+
+function randomRGB(){
+    return "rgb(" + randomColor() + ", " + randomColor() + ", " + randomColor() + ")";
 }
