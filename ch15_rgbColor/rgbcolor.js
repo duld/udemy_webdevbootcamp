@@ -38,3 +38,12 @@ function randomColor(){
 function randomRGB(){
     return "rgb(" + randomColor() + ", " + randomColor() + ", " + randomColor() + ")";
 }
+
+function generateRandomRGBs(numColors){
+    var colors = [];
+
+    for (var i = 0; i < numColors; i++){
+        colors.push(randomRGB());
+    }
+    return colors;
+}
