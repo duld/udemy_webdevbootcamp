@@ -26,6 +26,7 @@ h1 {
     height: 30px;
 }
 
-#stripe button {
-
+.selected {
+    background: blue;
+    color: white;
 }
