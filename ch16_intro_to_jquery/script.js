@@ -13,7 +13,7 @@ $('#third').css('border', '2px dashed orange');
 $('div').filter(':first').css('color', 'pink');
 
 var ul = document.querySelector("ul");
-console.log(ul);
+
 var highlighted;
 ul.addEventListener('click', function(e){
     if (e.target && e.target.nodeName === 'LI'){
@@ -25,7 +25,6 @@ ul.addEventListener('click', function(e){
         
         // attach highlight class.
         highlighted = item;
-        console.log(item.innerHTML);
         item.classList.add("highlight");
     }
 }, false);

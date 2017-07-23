@@ -3,3 +3,17 @@
     color: #ced7e5;
     transition: all 0.3s;
 }
+
+.correct {
+    color: green;
+}
+
+.wrong {
+    color: red;
+    background : pink;
+}
+
+.done {
+    color: grey;
+    text-decoration: line-through;
+}
