@@ -1,4 +1,4 @@
-console.log("script loaded!");
+//console.log("script loaded!");
 
 var numColors = 6;
 var colors = generateRandomRGBs(numColors);
@@ -8,65 +8,31 @@ var pickedColor = pickColor();
 var colorDisplay = document.querySelector("#color-display");
 var messageDisplay = document.querySelector("#message");
 var resetButton = document.querySelector("#reset");
-var easyButton = document.querySelector("#easyBtn");
-var hardButton = document.querySelector("#hardBtn");
+var buttons = document.querySelectorAll('.mode');
 
 
 colorDisplay.innerHTML = pickedColor;
 
 // Button event listners
-resetButton.addEventListener('click', function() {
-    colors = generateRandomRGBs(numColors);
-    pickedColor = pickColor();
+// HARD / EASY
+for (var i=0; i < buttons.length; i++){
+    buttons[i].addEventListener('click', function(){
+        buttons[0].classList.remove('selected');
+        buttons[1].classList.remove('selected');
+        this.classList.add('selected');
 
-    colorDisplay.innerHTML = pickedColor;
-    h1.style.backgroundColor = 'steelblue';
-    resetButton.textContent = "New Colors";
+        // figure out how many squares to show
+        numColors = this.textContent === "Easy" ? 3 : 6;
+        
+        reset();
+    }, false);
+}
 
-    for(var i=0; i < colors.length; i++){
-        squares[i].style.backgroundColor = colors[i];
-    }
-}, false);
-
-
-easyButton.addEventListener('click', function() {
-    numColors = 3;
-    
-    // generate new colors & pick new color
-    colors = generateRandomRGBs(numColors);
-    pickedColor = pickColor();
-
-    // hide the bottom 3 squares
-    for (var i=0; i < squares.length; i++){
-        if (colors[i])
-            squares[i].style.backgroundColor = colors[i];
-        else
-            squares[i].style.display = "none";
-    }
-    // manage selected state
-    this.classList.add('selected');
-    hardButton.classList.remove('selected');
-}, false);
-
-hardButton.addEventListener('click', function() {
-    console.log("hard button clicked");
-    numColors = 6;
-    // generate new colors
-    colors = generateRandomRGBs(numColors);
-    pickedColor = pickColor();
-
-    // hide the bottom 3 squars
-    for (var i=0; i < squares.length; i++){
-        squares[i].style.backgroundColor = colors[i];
-        squares[i].style.display = 'block';
-    }
+// RESET - NEW COLORS - PLAY AGAIN?
+resetButton.addEventListener('click', reset, false);
 
 
-    this.classList.add('selected');
-    easyButton.classList.remove('selected');
-}, false);
-
-
+// Squares event listeners.
 for (var i = 0; i < squares.length; i++) {
     // add initial colors to square
     squares[i].style.backgroundColor = colors[i];
@@ -130,4 +96,25 @@ function changeColors(color){
 function pickColor(){
     var random = Math.floor((Math.random() * colors.length));
     return colors[random];
+}
+
+function reset(){
+    // generate new colors & pick new color
+    colors = generateRandomRGBs(numColors);
+    pickedColor = pickColor();
+
+    colorDisplay.textContent = pickedColor;
+    resetButton.textContent = "New Colors";
+    messageDisplay.textContent = "";
+    // hide the bottom 3 squars
+    for (var i = 0; i < squares.length; i++){
+        if (colors[i]){
+            squares[i].style.backgroundColor = colors[i];
+            squares[i].style.display = 'block';
+        } else {
+            squares[i].style.display = "none";
+        }
+        
+    }
+    h1.style.background = "steelblue";
 }
