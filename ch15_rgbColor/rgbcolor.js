@@ -14,18 +14,20 @@ var hardButton = document.querySelector("#hardBtn");
 
 colorDisplay.innerHTML = pickedColor;
 
+// Button event listners
 resetButton.addEventListener('click', function() {
     colors = generateRandomRGBs(numColors);
     pickedColor = pickColor();
 
     colorDisplay.innerHTML = pickedColor;
-    h1.style.removeProperty('background-color');
+    h1.style.backgroundColor = 'steelblue';
     resetButton.textContent = "New Colors";
 
     for(var i=0; i < colors.length; i++){
         squares[i].style.backgroundColor = colors[i];
     }
 }, false);
+
 
 easyButton.addEventListener('click', function() {
     numColors = 3;
