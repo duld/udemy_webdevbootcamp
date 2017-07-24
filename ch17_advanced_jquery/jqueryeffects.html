@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jquery continued</title>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+        </script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: teal;
+            float: left;
+            margin: 0 3px;
+            text-align: center;
+
+        }
+
+        section {
+            clear: left;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <section>
+    <h1>jQuery Events</h1>
+    <input type='text'></input>
+
+    <button>Don't click me</button>
+    <button>Seriously Don't click me</button>
+    <button>This is your last warning</button>
+    </section>
+
+    <div>Please don't fade me!</div>
+    <div>I'm Begging you, please!</div>
+    <div>Do it you little bitch</div>
+    <div>Help! Help me!</div>
+    <button>Click Me!</button>
+
+    <script>
+        // .on()
+        $('input').on('keypress', function(event){
+            if (event.which == 13)
+                console.log($(this).val());
+        });
+
+        // effects
+        $("button").on('click', function(){
+            // $('div').fadeOut('slow', function(){
+            //     $(this).fadeIn();
+            // })
+            $('div').fadeToggle();
+        });
+    </script>
+
+</body>
+
+</html>
