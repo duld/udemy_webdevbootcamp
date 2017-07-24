@@ -1,0 +1,13 @@
+Folder structure:
+  index.html
+  
+  (dir) assets
+    
+    (dir) js
+        todo.js
+      
+      (dir) lib
+        jquery.js
+    
+    (dir)css
+      todo.css
