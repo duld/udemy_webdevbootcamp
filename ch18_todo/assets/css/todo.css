@@ -1,3 +1,16 @@
 body {
-    background: orange;
+    background : #a3a3a3;
+}
+
+#container {
+    border : 1px solid gray;
+    background : white;
+    width: 360px;
+    margin: 0 auto;
+
+}
+
+.checked-off {
+    text-decoration: line-through;
+    color: gray;
 }
