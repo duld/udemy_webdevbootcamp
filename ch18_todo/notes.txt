@@ -11,3 +11,16 @@ Folder structure:
     
     (dir)css
       todo.css
+
+Event Bubbling:
+  When you click on an element, it also fires any click events attatched to parent elements.
+
+  To prevent the event bubbling, you must tell the even to stop triggering events.
+    do this using: event.stopPropegation();
+
+Adding event listeners to dynamically added elements:
+  You add the event listener to the 'container' where the dynamic elements will be added.
+  Then, you specify the dynamic element in the jquery addEventListener syntax.
+
+  $('ul').on('click', 'li', function(){});
+  // the 'li' argument is what the event listener is checking for when the click event fires.
