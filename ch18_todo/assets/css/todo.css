@@ -1,5 +1,8 @@
 body {
     font-family: 'Roboto', sans-serif;
+    background: #ffd89b; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffd89b, #19547b); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffd89b, #19547b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 h1 {
@@ -10,6 +13,24 @@ h1 {
     padding: 10px 20px;
     font-size: 24px;
     font-weight: normal;
+}
+
+input {
+    font-size: 18px;
+    background-color: #f7f7f7;
+    color: #2980b9;
+    border: none;
+    width: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+input:focus {
+    background: white;
+    border: 3px solid #2980b9;
+    outline: none;
 }
 
 ul {
