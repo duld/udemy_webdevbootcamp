@@ -4,6 +4,25 @@
 
 <head>
 	<title>Token Web Page</title>
+	<script
+		  src="http://code.jquery.com/jquery-3.2.1.min.js"
+		  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		  crossorigin="anonymous"></script>
+	<style>
+
+	.selected {
+		color: green;
+		font-weight: 700;
+	}
+
+	.complete {
+		text-decoration: line-through;
+	}
+
+	ul {
+		list-style-type: none;
+	}
+	</style>
 </head>
 
 <body>
@@ -11,8 +30,32 @@
 	<h3>how interactive!</h3>
 	<!-- <p><span id="min">00</span>:<span id='sec'>00</span>:<span id='mil'>00</span></p> -->
 
+	<ul>
+		<li><span>EXIT</span> wash cat</li>
+		<li><span>EXIT</span> feed dog</li>
+		<li><span>EXIT</span> walk the fish</li>
+	</ul>
+
 	<!-- js -->
-	<script type='text/javascript' src='script.js'></script>
+	<script>
+	// mousever effect
+	$('ul').on('mouseover', 'li', function(event){
+		$(this).toggleClass('selected');
+	});
+
+	// mouseout
+	$('ul').on('mouseout', 'li', function(event){
+		$(this).toggleClass('selected');
+	})
+
+	$('ul').on('click', 'li', function(event){
+		$(this).toggleClass('complete');
+	})
+
+
+
+	</script>
+
 </body>
 
 </html>
