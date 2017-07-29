@@ -2,12 +2,25 @@ body {
     background : #a3a3a3;
 }
 
+h1 {
+    text-transform: uppercase;
+    background: #2980b9;
+    color: white;
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+
+
 #container {
     border : 1px solid gray;
-    background : white;
+    background : #f7f7f7;
     width: 360px;
-    margin: 0 auto;
-
+    margin: 100px auto;
+    box-shadow: 0 0 rgb(25, 25, 25);
+    border: none;
 }
 
 .checked-off {
