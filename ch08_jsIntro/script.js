@@ -240,3 +240,21 @@ function max(array) {
 }
 
 // console.log(max(myArr));
+
+/en-US/docs/Web/Events
+var matchStr = '/en-US/docs/Web/Events/';
+var zArray = [];
+var jDict = {}
+var i, href;
+for (i=0, href=''; i < alist.length; i++){
+	if (alist[i].href.includes(matchStr) && !alist[i].innerHTML.includes("XUL"))
+		zArray.push(alist[i]);
+}
+
+var myCount = 0;
+for (i=0; i < zArray.length; i++){
+	if (!jDict.hasOwnProperty(zArray[i].innerHTML)){
+		jDict[zArray[i].innerHTML] = 1;
+		myCount++;
+	}
+} 
