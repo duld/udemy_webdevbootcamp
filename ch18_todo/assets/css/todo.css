@@ -1,5 +1,4 @@
 body {
-    background : #a3a3a3;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -17,6 +16,17 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+li {
+    background: white;
+    height: 40px;
+    line-height: 40px;
+    color: #444444;
+}
+
+li:nth-child(2n) {
+    background: #f7f7f7;
 }
 
 #container {
