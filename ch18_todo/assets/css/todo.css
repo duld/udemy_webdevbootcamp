@@ -15,11 +15,15 @@ h1 {
     font-weight: normal;
 }
 
+h1 .fa {
+    float: right;
+}
+
 input {
     font-size: 18px;
     background-color: #f7f7f7;
     color: #2980b9;
-    border: none;
+    border: 3px solid rgba(0, 0, 0, 0);
     width: 100%;
     padding: 10px 15px;
     box-sizing: border-box;
@@ -50,6 +54,23 @@ li:nth-child(2n) {
     background: #f7f7f7;
 }
 
+li:hover span{
+    width: 40px;
+    opacity: 1;
+}
+
+span {
+    background: #e74c3c;
+    height: 40px;
+    width: 0;
+    display: inline-block;
+    margin-right: 20px;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: 0.2s linear;
+}
+
 #container {
     border : 1px solid gray;
     background : #f7f7f7;
@@ -66,4 +87,8 @@ li:nth-child(2n) {
 
 button {
     float: right;
+}
+
+.hidden {
+    display: none;
 }
