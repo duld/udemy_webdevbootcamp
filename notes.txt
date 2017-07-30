@@ -1,0 +1,53 @@
+Folder structure:
+  index.html
+  
+  (dir) assets
+    
+    (dir) js
+        todo.js
+      
+      (dir) lib
+        jquery.js
+    
+    (dir)css
+      todo.css
+
+Event Bubbling:
+  When you click on an element, it also fires any click events attatched to parent elements.
+
+  To prevent the event bubbling, you must tell the even to stop triggering events.
+    do this using: event.stopPropegation();
+
+Adding event listeners to dynamically added elements:
+  You add the event listener to the 'container' where the dynamic elements will be added.
+  Then, you specify the dynamic element in the jquery addEventListener syntax.
+
+  $('ul').on('click', 'li', function(){});
+  // the 'li' argument is what the event listener is checking for when the click event fires.
+
+
+box-shadow
+  - offset x, offset y, color
+
+box-sizing
+   This fixes the width/height of an element when using width: 100%
+   so that the element doesn't extend past the diemensions of its parent,
+   if there is also padding or margin applied.
+
+   webkit and moz prefixes must be included.
+
+Using css selectors to animate instead of js
+  li:hover span {
+    width: 100px;
+  }
+
+  when you hover over the li, the style will be applied
+  to the span element(s) directly inside the li.
+
+Adding an invisible border
+  border: 3px solid rgba(0, 0, 0, 0);
+
+  this is usefull for when you have elements such as an input 
+  of type 'text' that causes elements below it to shift when it's 
+  under focus. For example in a project if you add a border when you 
+  you have the input under focus 
