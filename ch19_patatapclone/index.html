@@ -12,26 +12,19 @@
     <script type='text/javascript' src='assets/js/lib/paper-full.js'></script>
     <script type='text/javascript' src='assets/js/main.js'></script>
     <script type="text/paperscript" canvas="myCanvas">
+        var range = 800;
         // Create a circle shaped path:
-        var path = new Path.Circle({
-        center: new Point(50, 50),
-        radius: 30,
-        fillColor: 'red'
-        });
+        function onKeyDown(event){
+          new Path.Circle(new Point(randomNum(range), randomNum(range)), 10).fillColor = randomRGB();
+        }
 
-        tool.onKeyDown = function(event) {
-            if (event.key == 'space') {
-            
-            var path = new Path.Circle({
-            center: new Point(Math.floor(Math.random() * 900), Math.floor(Math.random() * 500)),
-            radius: 10,
-            fillColor: 'red'
-            });
+        function randomNum(range){
+          return Math.floor(Math.random() * range);
+        }
 
-            // Prevent the key event from bubbling
-            return false;
-    }
-}
+        function randomRGB(){
+          return "rgb(" + randomNum(255) + "," + randomNum(255) +"," + randomNum(255) + ")";
+        }
     </script>
 </head>
 <body>
