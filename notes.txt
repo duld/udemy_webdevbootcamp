@@ -51,3 +51,8 @@ Adding an invisible border
   of type 'text' that causes elements below it to shift when it's 
   under focus. For example in a project if you add a border when you 
   you have the input under focus 
+
+
+removing an element from a JS array.
+  - Don't forget that pop removes the last item in the array, passing an argument
+    will not pop/remove that index from the array. 
