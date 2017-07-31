@@ -12,16 +12,23 @@
     <script type='text/javascript' src='assets/js/lib/paper-full.js'></script>
     <script type='text/javascript' src='assets/js/main.js'></script>
     <script type="text/paperscript" canvas="myCanvas">
-        var range = 800;
         // Create a circle shaped path:
         function onKeyDown(event){
-          new Path.Circle(new Point(randomNum(range), randomNum(range)), 10).fillColor = randomRGB();
+          new Path.Circle(randomPoint(), randomNum(30) + 3).fillColor = randomRGB();
         }
 
+        // generate a random point based on the window size
+        function randomPoint(){
+          var maxPoint = new Point(view.size.width, view.size.height);
+          return maxPoint * Point.random();
+        }
+
+        // generate a random number within some generic range.
         function randomNum(range){
           return Math.floor(Math.random() * range);
         }
 
+        // generate a random rgb() color value as a string.
         function randomRGB(){
           return "rgb(" + randomNum(255) + "," + randomNum(255) +"," + randomNum(255) + ")";
         }
