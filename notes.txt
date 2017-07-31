@@ -55,4 +55,23 @@ Adding an invisible border
 
 removing an element from a JS array.
   - Don't forget that pop removes the last item in the array, passing an argument
-    will not pop/remove that index from the array. 
+    will not pop/remove that index from the array.
+
+
+             Generic Stack
+Backend Language/app    Server    Database
+------------------------------------------
+HTML, JS, CSS     ==>        Webpage
+
+
+             Reddit Stack
+Python/Flask     nginx          PostgreSQL
+------------------------------------------
+HTML, JS, CSS     ==>        Webpage
+  (Backbone)
+
+
+             Our Stack
+Node JS          Express           MongoDB
+------------------------------------------
+HTML, JS, CSS     ==>        Webpage
