@@ -121,11 +121,16 @@
           }
         };
 
+        var circles = [];
+        var circleRad = 100;
+
         // during a keypress geneate a circle
         function onKeyDown(event){
           // Check if the key pressed is a key value in colors object
           if (sounds[event.key]){
-            new Path.Circle(randomPoint(), randomNum(30) + 3).fillColor = sounds[event.key].color;
+            var nCircle = new Path.Circle(randomPoint(), circleRad);
+            nCircle.fillColor = sounds[event.key].color;
+            circles.push(nCircle);
             sounds[event.key].sound.play();
           }
         }
@@ -146,22 +151,17 @@
           return "rgb(" + randomNum(255) + "," + randomNum(255) +"," + randomNum(255) + ")";
         }
 
-        // var animateCircle = new Path.Circle(new Point(100, 100), 20);
-        // console.log(animateCircle);
-        // animateCircle.fillColor = 'blue';
-        // var circles = [animateCircle];
-        //
-        // function onFrame(event){
-        //   for (var i=0; i < circles.length; i++){
-        //     if (circles[i].area < 1){
-        //       circles.pop(i).remove();
-        //       console.log(circles);
-        //     } else {
-        //       animateCircle.fillColor.hue += 1;
-        //       circles[i].scale(.9);
-        //     }
-        //   } // for
-        // }
+
+        function onFrame(event){
+          for (var i=0; i < circles.length; i++){
+            circles[i].scale(.9);
+            if (circles[i].area < 1){
+              circles[i].remove();
+              circles.splice(i,1);
+              console.log(circles);
+            }
+          } // for
+        }
 
     </script>
 </head>
