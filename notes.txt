@@ -110,3 +110,10 @@ Intro to Node:
   What is Node?
     A javascript runtime built on v8 js engine and chakra. It is a non browswer platform
     that allows you to run javascript files. 
+
+  Why are we learning it?
+    Its new and very popular but more importantly its asynchronous, open source, great libraries,
+    high-performance, strong vibrant community. Also you can leverage JS knowledge to learn backend.
+  
+    Node allows you to run javascript on the server as if you were running python, ruby or any other
+    backend language.
