@@ -104,3 +104,9 @@ Cloud 9:
   what is?
     cloud 9 is a platform useful for hosting and developing apps on. You have access
     to a terminal and can select project presets to get started quickly!
+  
+
+Intro to Node:
+  What is Node?
+    A javascript runtime built on v8 js engine and chakra. It is a non browswer platform
+    that allows you to run javascript files. 
