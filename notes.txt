@@ -136,3 +136,27 @@ Cloud 9:
     All packages installed using NPM will be placed in a 'node_modules' folder.
     Some packages that you install through NPM will have their own 'node_modules' 
     folder. This is becuase some packages depend, on other NPM packages.
+
+
+-------
+Framework vs toolkit vs library
+stackoverflow.com/questions/3057526/framework-vs-toolkit-vs-library
+
+tldr:
+  Difference vs library and framework is INVERSION OF CONTROL.
+  When you call a library, you are in control, but it is reversed with a 
+  framework. A toolkit is a bunch of independent libraries that work well
+  with one another.
+
+# Introduction to Express ##
+  https://expressjs.com/
+
+  What is Express?
+    Express is a webdevelopment FRAMEWORK. Express is the glue that helps keep
+    your app together.
+
+  Why Express?
+    It is the most Node framework. There is a large community and lots of learning
+    materials. Express is lightweight, as opposed to Ruby on Rails which is a heavy
+    weight framework. Heavy weight frameworks do more magic to get things done 
+    quickly.
