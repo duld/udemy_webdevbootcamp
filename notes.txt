@@ -117,3 +117,7 @@ Intro to Node:
   
     Node allows you to run javascript on the server as if you were running python, ruby or any other
     backend language.
+
+What is NPM?
+  Node Package Manager (NPM), is a package manager that allows you to install packages; js code that
+  other people have written that you can include in your app.
