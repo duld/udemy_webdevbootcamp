@@ -54,8 +54,9 @@ Adding an invisible border
 
 
 removing an element from a JS array.
-  - Don't forget that pop removes the last item in the array, passing an argument
-    will not pop/remove that index from the array.
+  - Don't forget that pop removes the last item in the array, passing an 
+    argument will not pop/remove that index from the array.
+
 
 
              Generic Stack
@@ -86,7 +87,8 @@ static vs dynamic web pages:
 
   - static pages do not change, the code that makes the page is constant.
 
-stack: A generic term referring to the technologies used in constructing a website/webapp.
+stack: A generic term referring to the technologies used in constructing a 
+       website/webapp.
 
 
 HTTP requests:
@@ -102,22 +104,31 @@ HTTP requests:
 Cloud 9:
 
   what is?
-    cloud 9 is a platform useful for hosting and developing apps on. You have access
-    to a terminal and can select project presets to get started quickly!
+    cloud 9 is a platform useful for hosting and developing apps on. You 
+    have access to a terminal and can select project presets to get started 
+    quickly!
   
 
-Intro to Node:
-  What is Node?
-    A javascript runtime built on v8 js engine and chakra. It is a non browswer platform
-    that allows you to run javascript files. 
+# NODE ##----------------------------------------------------------------------
+  Intro to Node:
+    What is Node?
+      A javascript runtime built on v8 js engine and chakra. It is a non 
+      browswer platform that allows you to run javascript files. 
 
-  Why are we learning it?
-    Its new and very popular but more importantly its asynchronous, open source, great libraries,
-    high-performance, strong vibrant community. Also you can leverage JS knowledge to learn backend.
+    Why are we learning it?
+      Its new and very popular but more importantly its asynchronous, open 
+      source, great libraries, high-performance, strong vibrant community. Also 
+      you can leverage JS knowledge to learn backend.
+    
+      Node allows you to run javascript on the server as if you were running 
+      python, ruby or any other backend language.
   
-    Node allows you to run javascript on the server as if you were running python, ruby or any other
-    backend language.
+  # NPM ##---------------------------------------------------------------------
+  What is NPM?
+    Node Package Manager (NPM), is a package manager that allows you to install 
+    packages; js code that other people have written that you can include in 
+    your app.
 
-What is NPM?
-  Node Package Manager (NPM), is a package manager that allows you to install packages; js code that
-  other people have written that you can include in your app.
+  Installing and Using Packages:
+    Use 'npm install' to install a package
+    use 'require()' to include a package
