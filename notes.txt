@@ -132,3 +132,7 @@ Cloud 9:
   Installing and Using Packages:
     Use 'npm install' to install a package
     use 'require()' to include a package
+
+    All packages installed using NPM will be placed in a 'node_modules' folder.
+    Some packages that you install through NPM will have their own 'node_modules' 
+    folder. This is becuase some packages depend, on other NPM packages.
