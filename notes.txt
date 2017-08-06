@@ -182,3 +182,57 @@ tldr:
   var app = express();
 
   app.get([options], callback)
+
+
+# HTTP Request Methods ##
+  # GET #
+    The GET method requests a representation of the specified resource. requests
+    using GET should only retrieve data and should have no other effect.
+  
+  # HEAD #
+    The HEAD method asks for a response identical to that of a GET request, but
+    without the response body. This useful for retrieving meta-information 
+    written in response headers, without having to transport the entire content.
+  
+  # POST #
+    The POST method requests that the server accept the entity enclosed in the  
+    request as a new subordinate of the web resource identified by the URI. 
+    The data POSTed might be, for example, an annotation for existing resources;
+    a message for a bulletin board, newsgroup, mailing list, or comment thread; 
+    a block of data that is the result of submitting a web form to a 
+    data-handling process; or an item added to a database.
+
+  # PUT #
+    The PUT method requests that the enclosed entity be stored under the 
+    supplied URI. If the URI refers to an already existing resource, it is 
+    modified; if the URI does not point to an existing resource, then the 
+    server can create the resource with that URI.
+
+  # DELETE #
+    The DELETE method deletes the specified resource.
+
+  # TRACE # 
+    The TRACE method echoes the recieved request so that the client can see 
+    what if any changes or additions have been made by intermediate servers.
+
+  # OPTIONS #
+    The OPTIONS method returns the HTTP methods that the server supports for 
+    the specified URL. THis can be used to check the functionality of a web 
+    server by requesting '*' instead of a specified resource.
+
+  # CONNECT #
+    The CONNECT method converts the request connection to a transparent TCP/IP 
+    Tunnel, usually to facillitate SSL encrypted communication (HTTPS) through 
+    an unencrypted HTTP proxy.
+
+  # PATCH #
+    The PATCH method applies partial modifications to a resource.
+
+# Safe HTTP methods ##
+  # HEAD, GET, OPTIONS and TRACE, they should produce no side effects. However 
+    If programmed carelessly a GET request could delete content/articles. for
+    example http://www.examplepage.com/article/1234/delete which if arbitrarily 
+    fetched, even using GET, would simply delete the article. This behavior 
+    is not by default and would have to be added by a programmer. Don't do this,
+    otherwise a web crawler could run around deleting all the articles on your 
+    site.
