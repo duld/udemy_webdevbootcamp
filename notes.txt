@@ -101,12 +101,21 @@ HTTP requests:
    - time: how long did the GET request take
 
 
-Cloud 9:
+# Cloud 9 ##
 
-  what is?
+  # what is?
     cloud 9 is a platform useful for hosting and developing apps on. You 
     have access to a terminal and can select project presets to get started 
     quickly!
+
+  # Using cloud 9 to host your app temporarily
+    To use cloud 9 to run your Node/Express server you need to tell Express 
+    what port to listen on, along with an IP.
+
+    app.listen(process.env.PORT, process.env.IP);
+
+    then, when you run your server you can use the 'Preview' button at the very
+    top of your Cloud 9 IDE to preview the app.
   
 
 # NODE ##----------------------------------------------------------------------
