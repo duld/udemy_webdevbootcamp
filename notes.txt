@@ -133,18 +133,33 @@ HTTP requests:
       python, ruby or any other backend language.
   
   # NPM ##---------------------------------------------------------------------
-  What is NPM?
+  # What is NPM?
     Node Package Manager (NPM), is a package manager that allows you to install 
     packages; js code that other people have written that you can include in 
     your app.
 
-  Installing and Using Packages:
+  # Installing and Using Packages:
     Use 'npm install' to install a package
     use 'require()' to include a package
 
     All packages installed using NPM will be placed in a 'node_modules' folder.
     Some packages that you install through NPM will have their own 'node_modules' 
     folder. This is becuase some packages depend, on other NPM packages.
+
+  # Package.JSON
+    You should use npm init to create a package.json to record valuable meta-data
+    about your app. This is the recipe of your app that you can send to anyone 
+    it will contain all the relevent information they need to build it, w/o 
+    requireing you to send them all the dependency folders/files.
+    
+    A file that contains all of the meta-data about a given app. Various 
+    details about the app are listed, including: name, version #, git repo URL,
+    and dependencies.
+
+    # node_modules folder and github
+      When we are sharing code and packages and repositories and they depend on 
+      10 or 20 other packages, instead of including the folders on github. We 
+      can list the packages they require using the package.json file. 
 
 
 -------
@@ -156,6 +171,7 @@ tldr:
   When you call a library, you are in control, but it is reversed with a 
   framework. A toolkit is a bunch of independent libraries that work well
   with one another.
+-------
 
 # Introduction to Express ##
   https://expressjs.com/
