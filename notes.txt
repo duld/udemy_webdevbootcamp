@@ -160,3 +160,25 @@ tldr:
     materials. Express is lightweight, as opposed to Ruby on Rails which is a heavy
     weight framework. Heavy weight frameworks do more magic to get things done 
     quickly.
+
+
+# Express Continued ##
+  Routing (https://expressjs.com/en/starter/basic-routing.html)
+  * Routing refers to determining how an application responds to a client 
+    request to a particular endpoint, which is a URI(or path) and a speciffic 
+    HTTP request method (GET, POST, and so on).
+
+    Each route can have one or more handler functions, which are executed when 
+    the route is matched. The route definition takes the following structure:
+      app.METHOD(PATH, HANDLER)
+      Where:
+        * app is an instance of express
+        * Method is an HTTP request method, in lowercase
+        * Path is a path on the server
+        * Handler is the function executed when the route is matched
+
+
+  var express = require('express');
+  var app = express();
+
+  app.get([options], callback)
