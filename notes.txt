@@ -151,7 +151,7 @@ HTTP requests:
     about your app. This is the recipe of your app that you can send to anyone 
     it will contain all the relevent information they need to build it, w/o 
     requireing you to send them all the dependency folders/files.
-    
+
     A file that contains all of the meta-data about a given app. Various 
     details about the app are listed, including: name, version #, git repo URL,
     and dependencies.
@@ -207,6 +207,33 @@ tldr:
   var app = express();
 
   app.get([options], callback)
+
+# The Order of Routes #
+  The order of routes matters! If you place your catchall route:
+    app.get('*', function(req, res){
+      res.send('catchall');
+    });
+  then any get request will be caught by the catchall '*' route. To avoid this
+  behavior, place the catchall as the very last GET request you handle.
+
+# Route Parameters #
+  Route Parameters are named URL segments that are used to capture the values 
+  specified at their position in the URL. The captured values are populated in 
+  the req.params object, with the name of the route parameter specified in the 
+  path as their respective keys.
+
+  you use the ':' to designate the parameter 
+
+  Route path: /users/:userID/books/:bookId
+  Request URL: http://localhost:3000/users/34/books/8989
+  req.params: {"userId": "34", "bookId" : "8989"}
+
+  A Parameter could look something like:
+  // app.get("/r/subredditName/comments/id/title/") // the idea
+  - app.get("/r/:subredditName") // the implementation
+  - app.get("/r/:subredditName/comments/:id/:title/")
+
+   
 
 
 # HTTP Request Methods ##
