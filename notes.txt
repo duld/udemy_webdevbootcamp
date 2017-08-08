@@ -233,7 +233,18 @@ tldr:
   - app.get("/r/:subredditName") // the implementation
   - app.get("/r/:subredditName/comments/:id/:title/")
 
-   
+
+# Rendering HTML and Templates
+  
+  Express does not normally work with static html pages, but instead with 
+  Templates. These templates construct the webpage dynamically. In the Templates 
+  you pass Javascript by writing <%= JSGOES HERE %>.
+
+  # res.render(file, {data: values})
+    The render method lives on the response object, and can be used to render 
+    a file. You can pass data to res.render using a js object.
+
+
 
 
 # HTTP Request Methods ##
