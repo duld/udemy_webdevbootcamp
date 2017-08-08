@@ -267,7 +267,11 @@ tldr:
     The dynamic content will always change, the partials/layouts rarely will
     
 
-
+# Express, get Access to request body content
+  To read the value of a request's body content you need to include the JS 
+  library body-parser. What body-parser does is parse the body and convert 
+  the content into JS readablie values that can be accessed off of the 
+  request object.
 
 # HTTP Request Methods ##
   # GET #
@@ -321,3 +325,24 @@ tldr:
     is not by default and would have to be added by a programmer. Don't do this,
     otherwise a web crawler could run around deleting all the articles on your 
     site.
+
+
+# Post Requests ##
+
+  * write post routes, and test them with Postman
+  * use a form to send a post request
+  * use body parser to get form data
+
+  You can populate a post request with data using an HTML form. You specify it
+  as so
+
+  <form action="/addfriend' method="post">
+    <input type='text' name='newfriend'>
+    <button>Submit</button>
+  </form>
+
+  action represents the route to be sent, method represents the HTML method 
+  to employ. You can specify the data to be sent in the post by the use of 
+  the name attribute.
+
+  name : myDataToBeSent
