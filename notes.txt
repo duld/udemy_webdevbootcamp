@@ -234,7 +234,7 @@ tldr:
   - app.get("/r/:subredditName/comments/:id/:title/")
 
 
-# Rendering HTML and Templates
+# EJS Rendering HTML and Templates
   
   Express does not normally work with static html pages, but instead with 
   Templates. These templates construct the webpage dynamically. In the Templates 
@@ -244,6 +244,28 @@ tldr:
     The render method lives on the response object, and can be used to render 
     a file. You can pass data to res.render using a js object.
 
+# EJS Control Flow
+  EJS has many types of tags
+
+  <%= %> - the value returned from the evaluation of JS code will be inserted 
+           here. Outputs the value into the template (HTML escaped)
+
+  <% %>  - 'Scriptlet' tag, for control-flow, no output. Must be placed on 
+           every line containing control-flow syntax.
+
+  <%- %> - Ouputs the unescaped value into the template.
+
+
+# EJS Partials
+
+  EJS Partials/layouts
+    A partial/layout is a snippet of reusable code that you can insert anywhere
+    in a file you serve up. It is usefull for including HTML boiler plate, 
+    linking stylesheets, js files etc that need to be included in multiple 
+    dynamically generated webpages.
+
+    The dynamic content will always change, the partials/layouts rarely will
+    
 
 
 
