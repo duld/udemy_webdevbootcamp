@@ -346,3 +346,44 @@ tldr:
   the name attribute.
 
   name : myDataToBeSent
+
+
+# API's ##
+ - IFTTT : if this then that.
+ - ProgrammableWeb.com : find public API's
+ 
+ # Web API's
+   Twitter API - access to twets
+   Facebook API - access user profile
+   Weather API - what is the weathers at some location?
+   Reddit API - current top post?
+   GooglePlaces API - what gas stations are near the user?
+   Yelp API - query restraunts based on given location?
+
+ # How do web API's work?
+
+   * Make a reqest to a website
+   * website returns a text response as JSON.
+   * API's respond with data
+   * Each API is different, read the Docs in order to understand how to 
+     use a speciffic API.
+  
+  XML -  syntactically similar to HTML but no presentation structure, just data
+  JSON - JavaScript Object Notation, similar to a JS object but every key, 
+         value pair is encoded as a string.
+
+  XML:
+  <person>
+   <age>21</age>
+   <name>Travis</name>
+   <city>Los Angeles</city>
+  </person>
+
+  JSON:
+  { 
+    "person" : {
+      "age" : "21",
+      "name" : "Travis",
+      "city" : "Los Angeles
+    }
+  }
