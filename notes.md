@@ -16,6 +16,8 @@ A website that lists APIs that we can interact with. A good source to use when s
 ---
 
 ### JSON and XML
+JSON and XML are the two most popular data formats that an API will respond with. JSON is currently the most popular format, due to ease of use in web development.
+
 ### Making API Requests with Node
 ### Sunset Time API Example
 ### Movie API App: Introduction
