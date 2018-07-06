@@ -1,5 +1,20 @@
 ## Section 25
 ### Intro to APIs
+#### API: Application Program(ing)Interface
+In general terms, it is a set of clearly defined methods of communication between various components. An API may be for a web-based system, operating system, database system, computer hardware, or software library. - Wikipedia ~ application programming interface
+
+The most popular APIs are generally web based, but APIs can be found everywhere. Web APIs commonly communicate using JSON or XML.
+
+---
+#### If This Then That (https://www.ifttt.com)
+A service that offers 'applets' to users, with the idea of automating some kind of task. IFTTT leverages web based APIs to have multiple services communicate with one another. Users who use the IFTTT do not need to be developers, it seems designed for the average person.
+
+---
+#### Programmable Web (https://www.programmableweb.com)
+A website that lists APIs that we can interact with. A good source to use when searching for an API that offers functionality we are interested in.
+
+---
+
 ### JSON and XML
 ### Making API Requests with Node
 ### Sunset Time API Example
