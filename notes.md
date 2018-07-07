@@ -18,9 +18,7 @@ A website that lists APIs that we can interact with. A good source to use when s
 ### JSON and XML
 JSON and XML are the two most popular data formats that an API will respond with. JSON is currently the most popular format, due to ease of use in web development.
 
-### Making API Requests with Node
-### Sunset Time API Example
-### Movie API App: Introduction
-### Movie API APP: Results Route
 ### Movie API APP: Displaying Data
-### Movie API app: Ading Search
+__EJS templating__
+  * the __<%__ __%>__ tags are used for control flow, we can write JavaScript like syntax here, if statements, loop statements, object key access etc.
+  * the __<%=__ tag is used for value insertion. We are going to be inserting some value into the HTML document.
