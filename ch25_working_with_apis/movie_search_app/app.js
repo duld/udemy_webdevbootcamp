@@ -3,24 +3,27 @@ const request = require('request');
 
 const PORT = 3000;
 const app = express();
+const OMDB_URL = 'http://omdbapi.com';
+const OMDB_APIKEY = 'thewdb';
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.send('hi');
+  res.render('search');
 });
 
 app.get('/results', (req, res) => {
-  let res_data;
-  request('http://omdbapi.com/?s=star%20wars&apikey=thewdb', (error, response, body) => {
+  // Format the search parameter passed in.
+  let search_val = req.query.search;
+  let url = `${OMDB_URL}/?s=${search_val}&apikey=${OMDB_APIKEY}`;
+  // OMDB request.
+  request( url, (error, response, body ) => {
     if (!error && response.statusCode === 200) {
-      res_data = JSON.parse(body);
-      // res.send(res_data);
-      res.render('results', {data: res_data});
+      res.render('results', {data: JSON.parse(body)});
     } else {
       console.log(error)
       res.status(404).send('Bad request');
     }
-  })
+  });
 });
 
 app.listen(PORT, () => {
