@@ -1,0 +1,23 @@
+{
+  "name": "web_developer_bootcamp",
+  "version": "1.0.0",
+  "description": "This Repository is intended as a place for me to store all the projects from Colt Steele's Web Developer Bootcamp. Also this doubles as a great excuse to practice using git and GitHub.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duld/udemy_webdevbootcamp.git"
+  },
+  "author": "Jeffrey McCrea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duld/udemy_webdevbootcamp/issues"
+  },
+  "homepage": "https://github.com/duld/udemy_webdevbootcamp#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "request": "^2.87.0"
+  }
+}
