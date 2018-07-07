@@ -1,3 +1,6 @@
 <% campgrounds.forEach(function(location){ %>
-    <li><%= location["name"] %></li>
+    <div>
+    <h4><%= location["name"] %></h4>
+    <img src="<%=location["image"] %>">
+    </div>
 <% }); %>
