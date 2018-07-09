@@ -1,19 +1,37 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
+// Setup Express
 let app = express();
 let PORT = 3000;
 
 app.set('view engine', "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 
+// Connect to Mongodb
+mongoose.connect('mongodb://localhost:27017/YelpCamp', {useNewUrlParser: true})
+  .then(() => console.log('connected to MongoDB'))
+  .catch(err => console.log('There was a problem trying to connect to MongoDB', err));
+
+// Schema
+let campgroundSchema = new mongoose.Schema({
+  name: String,
+  image: String
+});
+
+let Campground = mongoose.model('Campground', campgroundSchema);
+
 // Temp Data
-let campgrounds = [
-  {name: "Salmon Creek", image: "https://images.pexels.com/photos/1061640/pexels-photo-1061640.jpeg?auto=compress&cs=tinysrgb&h=350"},
-  {name: "Granite Hill", image: "https://t00.deviantart.net/QyuTy1K7Nqumfx7aagdbgl1x7A0=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre00/2fd2/th/pre/i/2013/245/3/f/rapids_and_waterfalls_by_lightningthefox7-d6ktxtu.jpg"},
-  {name: "Bent Fork", image: "https://parks.state.wa.us/ImageRepository/Document?documentID=10012"},
-  {name: "Slasher Hangout", image: "http://www.outdoorexposurephoto.com/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/4/8/4855_01_m.jpg"}
-];
+// let campgrounds = [
+//   {name: "Salmon Creek", image: "https://images.pexels.com/photos/1061640/pexels-photo-1061640.jpeg?auto=compress&cs=tinysrgb&h=350"},
+//   {name: "Granite Hill", image: "https://t00.deviantart.net/QyuTy1K7Nqumfx7aagdbgl1x7A0=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre00/2fd2/th/pre/i/2013/245/3/f/rapids_and_waterfalls_by_lightningthefox7-d6ktxtu.jpg"},
+//   {name: "Bent Fork", image: "https://parks.state.wa.us/ImageRepository/Document?documentID=10012"},
+//   {name: "Slasher Hangout", image: "http://www.outdoorexposurephoto.com/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/4/8/4855_01_m.jpg"}
+// ];
+
+// // Campground.insertMany(campgrounds)
+// //   .catch(err => console.log('there was a problem saving to MongoDB'))
 
 // ROUTES //
 // /
@@ -23,7 +41,15 @@ app.get('/', (req, res) => {
 
 // /campgrounds
 app.get('/campgrounds', (req, res) => {
-  res.render('campgrounds', {campgrounds})
+  // load all campgrounds from db
+  Campground.find()
+    .then(campgrounds => {
+      res.render('campgrounds', {campgrounds});
+    })
+    .catch(err => {
+      res.render('campgrounds', {})
+    });
+  // res.render('campgrounds', {campgrounds})
 });
 
 app.post('/campgrounds', (req, res) => {
@@ -31,8 +57,15 @@ app.post('/campgrounds', (req, res) => {
   // redirect to /campgrounds
   let name = req.body.name;
   let image = req.body.image;
-  campgrounds.push({name, image});
-  res.redirect('/campgrounds');
+  Campground.create({name, image})
+    .then(campground => {
+      res.redirect('/campgrounds');
+    })
+    .catch(err => {
+      console.log('there was a problem saving to the database');
+      res.redirect('/campgrounds');
+    });
+  
 });
 
 // /campgrounds/new
@@ -40,7 +73,7 @@ app.get('/campgrounds/new', (req, res) => {
   res.render('new.ejs');
 });
 
-// app.patch('campgrounds/', (req, res) => {
+// app.post('campgrounds/', (req, res) => {
 //   console.log('inside patch')
 //   let name = req.body.name;
 //   let image = req.body.image;
