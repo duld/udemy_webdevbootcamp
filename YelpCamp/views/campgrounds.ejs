@@ -1,5 +1,4 @@
 <% include partials/header %>
-
 <div class="container">
   <header class="jumbotron">
       <h1>Campgrounds</h1>
@@ -14,6 +13,7 @@
           <img src="<%=location["image"] %>">
           <div class="caption">
             <h4><%= location["name"] %></h4>
+            <p><a href="/campgrounds/<%= location._id %>">More Info</a></p>
           </div>
         </div>
       </div>
