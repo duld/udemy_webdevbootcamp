@@ -22,3 +22,14 @@ JSON and XML are the two most popular data formats that an API will respond with
 __EJS templating__
   * the __<%__ __%>__ tags are used for control flow, we can write JavaScript like syntax here, if statements, loop statements, object key access etc.
   * the __<%=__ tag is used for value insertion. We are going to be inserting some value into the HTML document.
+
+### RESTful Routing
+There are seven types of RESTful routes
+
+| Name    | URL   | HTML VERB  | Description |
+| ------- | ----- | :--------: | ----------- |
+| INDEX   | /dogs | GET        | Display a list of all Dogs |
+| NEW     | /dogs/new | GET | Displays form to make a new dog |
+| CREATE  | /dogs | POST | Add new dog to DB |
+| SHOW    | /dogs/:id | GET | Shows info about one dog |
+| 
