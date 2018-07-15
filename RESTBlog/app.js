@@ -100,13 +100,13 @@ app.post('/blogs', (req, res) => {
 // Show Route
 app.get('/blogs/:id', (req, res) => {
   // lookup blog based on id
-  Blog.find({_id: req.params.id})
+  Blog.findById(req.params.id)
     .then( blog => {
       res.render('show', {blog})
     })
     .catch( err => {
       res.redirect('/blogs'); // couldn't find the blog in question, redirect to /blogs for now
-    })
+    });
 })
 
 
