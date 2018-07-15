@@ -5,3 +5,10 @@ i.icon {
 .container.main {
   margin-top: 7em;
 }
+
+.blog-body {
+  width: 500px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
