@@ -26,10 +26,12 @@ __EJS templating__
 ### RESTful Routing
 There are seven types of RESTful routes
 
-| Name    | URL   | HTML VERB  | Description |
-| ------- | ----- | :--------: | ----------- |
-| INDEX   | /dogs | GET        | Display a list of all Dogs |
-| NEW     | /dogs/new | GET | Displays form to make a new dog |
-| CREATE  | /dogs | POST | Add new dog to DB |
-| SHOW    | /dogs/:id | GET | Shows info about one dog |
-| 
+| Name    | URL            | VERB | Description                                |
+| ------- | -------------- |:---: | -----------                                |
+| INDEX   | /dogs          |  GET | Display a list of all Dogs                 |
+| NEW     | /dogs/new      |  GET | Displays form to make a new dog            |
+| CREATE  | /dogs          | POST | Add new dog to DB, then redirect somewhere |
+| SHOW    | /dogs/:id      |  GET | Shows info about one dog                   |
+| EDIT    | /dogs/:id/edit |  GET | Show edit form for one dog                 |
+| UPDATE  | /dogs/:id      | PUT  | Update a particular dog, redirect somewhere|
+| DESTROY | /dogs/:id      |DELETE| Delete a particular dog, redirect somewhere|
