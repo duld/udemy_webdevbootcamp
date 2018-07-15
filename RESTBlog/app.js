@@ -87,15 +87,27 @@ app.get('/blogs/new', (req, res) => {
 app.post('/blogs', (req, res) => {
   // create blog
   Blog.create(req.body.blog)
-    .then(doc => {
+    .then( doc => {
       res.redirect('/blogs');
     })
-    .catch(err => {
+    .catch( err => {
       console.log('unable to create a new blog');
       console.log(err);
       res.redirect('/blogs');
     });
 });
+
+// Show Route
+app.get('/blogs/:id', (req, res) => {
+  // lookup blog based on id
+  Blog.find({_id: req.params.id})
+    .then( blog => {
+      res.render('show', {blog})
+    })
+    .catch( err => {
+      res.redirect('/blogs'); // couldn't find the blog in question, redirect to /blogs for now
+    })
+})
 
 
 
