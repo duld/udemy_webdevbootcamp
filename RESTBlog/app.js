@@ -52,9 +52,21 @@ Blog.insertMany(blogs)
 
 // ROUTES
 app.get('/', (req, res) => {
-  res.send('hi');
-  // res.render('index');
+  res.redirect('/blogs');
 });
+
+app.get('/blogs', (req, res) => {
+  // load all the blogs
+  Blog.find({})
+    .then( blog_documents => {
+      if (blog_documents) {
+        res.render('index', {blogs: blog_documents});
+      }
+    })
+    .catch(err => {
+      res.render('index')
+    });
+})
 
 
 
