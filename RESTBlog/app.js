@@ -33,22 +33,32 @@ let blogs = [
     title: "Don't touch my shit",
     image: "https://images.unsplash.com/photo-1531584838419-d5d24b120bf6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f05ab3861a1f442b340e82dac9d9b122&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb",
     body: "Hey I'll be right back, please don't steal my Macbook Pro, iPhone, liqour or coffee. Why am I taking a depressant with an stimulant? Well See I'm in a Cafe so I have to buy a coffee, but I want to feed my depression so I need the liqour. Oh I see you noticed my heavy stock magazine, yes it is 'Kinfolk', I'm so happy you noticed."
+  },
+  {
+    title: "Today is sad",
+    image: "https://images.unsplash.com/photo-1496098868818-75736fc02eeb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e7812dba20298669a5208331af3bf5c5&w=1000&q=80",
+    body: "We is sad today."
+  },
+  {
+    title: "HELP!",
+    image: "https://images.unsplash.com/photo-1504606013363-f7f3d328d460?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ef9db82ba941f0c4a4610d56ed0498f1&w=1000&q=80",
+    body: "Someone is eating my babies!"
   }
 ];
 
 // Dump the old data
-Blog.deleteMany({})
-  .catch(err => console.log('There was a problem deleting from the DB'));
-// Inject the new data
-Blog.insertMany(blogs)
-  .then((docs) => {
-    if (docs) {
-      console.log('temp data was inserted into DB');
-    }
-  })
-  .catch(err => {
-    console.log('there was a problem inserting the data.')
-  });
+// Blog.deleteMany({})
+//   .catch(err => console.log('There was a problem deleting from the DB'));
+// // Inject the new data
+// Blog.insertMany(blogs)
+//   .then((docs) => {
+//     if (docs) {
+//       console.log('temp data was inserted into DB');
+//     }
+//   })
+//   .catch(err => {
+//     console.log('there was a problem inserting the data.')
+//   });
 
 // ROUTES
 app.get('/', (req, res) => {
@@ -66,7 +76,26 @@ app.get('/blogs', (req, res) => {
     .catch(err => {
       res.render('index')
     });
-})
+});
+
+// New Route
+app.get('/blogs/new', (req, res) => {
+  res.render('new');
+});
+
+// Create Route
+app.post('/blogs', (req, res) => {
+  // create blog
+  Blog.create(req.body.blog)
+    .then(doc => {
+      res.redirect('/blogs');
+    })
+    .catch(err => {
+      console.log('unable to create a new blog');
+      console.log(err);
+      res.redirect('/blogs');
+    });
+});
 
 
 
