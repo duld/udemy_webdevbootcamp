@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 
 const PORT = 3000;
 
@@ -9,6 +10,7 @@ const PORT = 3000;
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
+app.use(methodOverride('_method'));
 app.set("view engine", "ejs");
 
 // Connect to MongoDB
@@ -107,7 +109,42 @@ app.get('/blogs/:id', (req, res) => {
     .catch( err => {
       res.redirect('/blogs'); // couldn't find the blog in question, redirect to /blogs for now
     });
-})
+});
+
+// Edit Route
+app.get('/blogs/:id/edit', (req, res) => {
+  // lookup the blog
+  Blog.findById(req.params.id)
+    .then( blog => {
+      if (blog){
+        res.render('edit', {blog});
+      } else {
+        res.redirect('/blogs');
+      }
+    })
+    .catch( err => {
+      console.log('unable to find blog');
+      console.log(err);
+      res.redirect('/blogs');
+    });
+  // res.render('edit');
+});
+
+
+
+app.put('/blogs/:id', (req, res) => {
+  console.log('in the put request!')
+  Blog.findByIdAndUpdate(req.params.id, req.body.blog)
+    .then( blog => {
+      console.log(blog);
+      res.redirect(`/blogs/${req.params.id}`)
+    })
+    .catch( err => {
+      console.log('unable to update blog post');
+      console.log(err);
+      res.redirect('/blogs')
+    })
+});
 
 
 
