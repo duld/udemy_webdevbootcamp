@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+const expressSanitizer = require('express-sanitizer');
 
 const PORT = 3000;
 
@@ -130,20 +131,34 @@ app.get('/blogs/:id/edit', (req, res) => {
   // res.render('edit');
 });
 
-
-
+// EDIT - update a blog post
 app.put('/blogs/:id', (req, res) => {
-  console.log('in the put request!')
+  console.log('in the put request!');
+  // res.send('UPDATE ROUTE!');
   Blog.findByIdAndUpdate(req.params.id, req.body.blog)
     .then( blog => {
-      console.log(blog);
+      // console.log(blog);
       res.redirect(`/blogs/${req.params.id}`)
     })
     .catch( err => {
       console.log('unable to update blog post');
       console.log(err);
       res.redirect('/blogs')
+    });
+});
+
+app.delete('/blogs/:id', (req, res) => {
+  // res.send('deleting the blog');
+  // delete the blog post
+  Blog.findByIdAndRemove(req.params.id)
+    .then( removedBlog => {
+      res.redirect('/blogs');
     })
+    .catch(err => {
+      console.log('unable to delete blog post');
+      console.log(err);
+      res.redirect('/blogs');
+    });
 });
 
 
