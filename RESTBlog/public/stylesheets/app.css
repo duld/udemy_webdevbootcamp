@@ -6,9 +6,17 @@ i.icon {
   margin-top: 7em;
 }
 
-.blog-body {
+.index-blog-body {
   width: 500px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+#delete-blog-form {
+  display: inline;
+}
+
+.show-blog-body {
+  white-space: pre-wrap;
 }
