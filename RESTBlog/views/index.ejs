@@ -1,15 +1,36 @@
 <% include partials/header %>
 
-<h1>Index Page!!!</h1>
+<div class="ui main text container">
+  <div class="ui huge header">RESTful blog App</div>
+  
+  <div class="ui top attached segment">
+    <div class="ui divided items">
+      <% blogs.forEach((blog) => { %>
+        <div class="item">
 
-<% blogs.forEach((blog) => { %>
-  <div>
-    <h2><%= blog.title %></h2>
-    <img src="<%=blog.image%>">
-    <span><%=blog.created%></span>
-    <p class="index-blog-body"><%=blog.body%></p>
-  </div>
-  <div><a href="/blogs/<%=blog._id%>">More Info</a></div>
-<% }); %>
+          <div class="image">
+            <img class="" src="<%=blog.image%>">
+          </div>
+          <div class="content">
+            <a class="header" href="/blogs/<%=blog._id%>"><%= blog.title %></a>
+            <div class="meta">
+              <span><%=blog.created.toDateString()%></span>
+            </div>
+
+            <div class="description">
+                <p class="index-blog-body"><%-blog.body%></p>
+            </div>
+
+            <div class="extra">
+              <a class="ui floated basic green button" href="/blogs/<%=blog._id%>">More Info<i class="right chevron icon"></i></a>
+            </div>
+          </div> <!-- /content --> 
+        </div> <!-- /item -->
+        <% }); %>
+      </div> <!-- /divided items -->
+  </div> 
+
+</div> <!-- /container -->
+
 
 <% include partials/footer %>
