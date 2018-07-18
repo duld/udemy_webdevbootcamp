@@ -10,6 +10,7 @@ const PORT = 3000;
 // Setup Express
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(expressSanitizer())
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
 app.set("view engine", "ejs");
@@ -88,6 +89,9 @@ app.get('/blogs/new', (req, res) => {
 
 // Create Route
 app.post('/blogs', (req, res) => {
+  // sanitize the body text
+  req.body.blog.body = req.sanitize(req.body.blog.body);
+  
   // create blog
   Blog.create(req.body.blog)
     .then( doc => {
@@ -133,7 +137,10 @@ app.get('/blogs/:id/edit', (req, res) => {
 
 // EDIT - update a blog post
 app.put('/blogs/:id', (req, res) => {
-  console.log('in the put request!');
+  // console.log('in the put request!');
+  // sanitize the body
+  req.body.blog.body = req.sanitize(req.body.blog.body);
+
   // res.send('UPDATE ROUTE!');
   Blog.findByIdAndUpdate(req.params.id, req.body.blog)
     .then( blog => {
