@@ -1,4 +1,4 @@
-<% include partials/header %>
+<% include ../partials/header %>
 <h1>This is the show template!</h1>
 
 <p><%= campground.name %></p>
@@ -8,4 +8,4 @@
 <% campground.comments.forEach(function(cur){ %>
   <p><strong><%=cur.author%></strong>: <%=cur.text%></p>
 <% }) %>
-<% include partials/footer %>
+<% include ../partials/footer %>
