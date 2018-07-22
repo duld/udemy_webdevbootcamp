@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const seedDB = require('./seeds');
 
 // Models
 const {Campground} = require('./models/campground');
@@ -14,7 +15,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // Connect to Mongodb
 mongoose.connect('mongodb://localhost:27017/YelpCamp', {useNewUrlParser: true})
-  .then(() => console.log('connected to MongoDB'))
+    .then(() => {
+      console.log('connected to MongoDB');
+      seedDB();
+    })
   .catch(err => console.log('There was a problem trying to connect to MongoDB', err));
 
   
@@ -62,16 +66,14 @@ app.get('/campgrounds/new', (req, res) => {
 
 app.get('/campgrounds/:id', (req, res) => {
   // find the campground with the id
-  Campground.findById(req.params.id, {_id: 0, name: 1, description: 1, image: 1})
+  Campground.findById(req.params.id).populate('comments').exec()
     .then( campDoc => {
       res.render('show', {campground: campDoc})
     })
     .catch(err => {
       console.log('couldnt find campground');
       res.redirect('/campgrounds');
-    })
-  // res.send(`<h1>param: ${req.params.id}</h1>`);
-  // res.render("show", {id: req.params.id});
+    });
 });
 
 // app.post('campgrounds/', (req, res) => {
