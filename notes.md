@@ -35,3 +35,12 @@ There are seven types of RESTful routes
 | EDIT    | /dogs/:id/edit |  GET | Show edit form for one dog                 |
 | UPDATE  | /dogs/:id      | PUT  | Update a particular dog, redirect somewhere|
 | DESTROY | /dogs/:id      |DELETE| Delete a particular dog, redirect somewhere|
+
+
+### Intro to Associations
+An 'association' is just a description of how data realtes to one another. There are a few type of relationships, one:one, one:many and many:many. An example would be that an Home has only one valid Address, but it can contain may objects, and residents. Each resident has their own property but the same home address.
+
+#### Associations in MongoDB
+Two popular ways of implementing associations in MongoDB are through Embedding Data and Referencing Data.
+
+### Embedded Data
