@@ -13,6 +13,11 @@ let comments = [
     text: 'Tell him to stop it! Bill. STOP IT!',
     author: 'Dwight',
     _id: mongoose.Types.ObjectId()
+  },
+  {
+    text: 'Look at all those THICCENS!',
+    author: 'Small Girl',
+    _id: mongoose.Types.ObjectId()
   }
 ]
 let campgrounds = [
@@ -25,7 +30,8 @@ let campgrounds = [
   {
     name: "Granite Hill", 
     image: "https://t00.deviantart.net/QyuTy1K7Nqumfx7aagdbgl1x7A0=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre00/2fd2/th/pre/i/2013/245/3/f/rapids_and_waterfalls_by_lightningthefox7-d6ktxtu.jpg", 
-    description: "Enjoy a firm night's rest. If you crave a rock between your shoulder blades and mosquitos in your nose, look no further!"
+    description: "Enjoy a firm night's rest. If you crave a rock between your shoulder blades and mosquitos in your nose, look no further!",
+    comments: [{_id: comments[2]._id}]
   }, 
   {
     name: "Bent Fork", 
