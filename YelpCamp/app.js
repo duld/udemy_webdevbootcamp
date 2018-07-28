@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const seedDB = require('./seeds');
+const path = require('path');
 
 // Models
 const {Campground} = require('./models/campground');
@@ -13,6 +14,7 @@ let PORT = 3000;
 
 app.set('view engine', "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Connect to Mongodb
 mongoose.connect('mongodb://localhost:27017/YelpCamp', {useNewUrlParser: true})
