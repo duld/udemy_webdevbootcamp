@@ -42,6 +42,18 @@ app.get('/secret', (req, res) => {
   res.render('secret');
 });
 
+app.get('/login', (req, res) => {
+  res.send('login!');
+});
+
+app.get('/register', (req, res) => {
+  res.render('register');
+});
+
+app.get('/logout', (req, res) => {
+  res.send('logout');
+})
+
 app.listen(PORT, () => {
   console.log(`Server up and runninng on Port ${PORT}`)
 });
