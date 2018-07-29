@@ -5,6 +5,5 @@ let commentSchema = new mongoose.Schema({
   text: String
 });
 
-let Comment = mongoose.model('Comment', commentSchema);
-
-module.exports = {Comment}
+// Export the model
+module.exports = mongoose.model('Comment', commentSchema);
