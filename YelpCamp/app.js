@@ -1,22 +1,38 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
 const seedDB = require('./seeds');
 const path = require('path');
 
 // Models
-const {Campground} = require('./models/campground');
-const {Comment} = require('./models/comment');
+const User = require('./models/user');
+const Campground = require('./models/campground');
+const Comment = require('./models/comment');
 
-// Setup Express
+// Setup Express //
 let app = express();
 let PORT = 3000;
 
-app.set('view engine', "ejs");
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, 'public')));
+app.set( 'view engine', 'ejs' );
+app.use( bodyParser.urlencoded({extended: true}));
+app.use( express.static(path.join(__dirname, 'public')));
+app.use( require('express-session')({
+  secret: "theGofferAteMySpaghettiSpoon",
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
-// Connect to Mongodb
+// Setup Passport //
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+// Connect to Mongodb //
 mongoose.connect('mongodb://localhost:27017/YelpCamp', {useNewUrlParser: true})
     .then(() => {
       console.log('connected to MongoDB');
