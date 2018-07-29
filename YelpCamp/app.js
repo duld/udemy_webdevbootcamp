@@ -77,12 +77,12 @@ app.post('/campgrounds', (req, res) => {
   
 });
 
-// /campgrounds/new
+// Render new campground form
 app.get('/campgrounds/new', (req, res) => {
   res.render('campgrounds/new.ejs');
 });
 
-
+// Get campground by ID
 app.get('/campgrounds/:id', (req, res) => {
   // find the campground with the id
   Campground.findById(req.params.id).populate('comments').exec()
@@ -95,6 +95,7 @@ app.get('/campgrounds/:id', (req, res) => {
     });
 });
 
+// Render new campground comment form
 app.get('/campgrounds/:id/comments/new', (req, res) => {
   // find campground by id
   Campground.findById(req.params.id)
@@ -106,6 +107,7 @@ app.get('/campgrounds/:id/comments/new', (req, res) => {
     });
 });
 
+// Create a new comment on a campground
 app.post('/campgrounds/:id/comments', (req, res) => {
   // lookup campground
   Campground.findById(req.params.id)
@@ -133,6 +135,31 @@ app.post('/campgrounds/:id/comments', (req, res) => {
       res.redirect('/campgrounds');
     });
 });
+
+// Show register form
+app.get('/register', (req, res) => {
+  res.render('register');
+});
+
+// Register a new user
+app.post('/register', (req, res) => {
+  // res.send('lets register ' + req.body.username);
+  User.register(new User({username: req.body.username}), req.body.password)
+    .then( user => {
+      passport.authenticate('local')(req, res, () => {
+        res.redirect('/campgrounds');
+      });
+    })
+    .catch( err => {
+      console.log(err);
+      res.redirect('/register');
+    })
+});
+
+// Show Login form
+app.get('/login', (req, res) => {
+  res.render('login');
+})
 
 // start the server.
 app.listen(PORT, () => {
