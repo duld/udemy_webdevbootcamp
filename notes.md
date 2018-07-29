@@ -43,4 +43,8 @@ An 'association' is just a description of how data realtes to one another. There
 #### Associations in MongoDB
 Two popular ways of implementing associations in MongoDB are through Embedding Data and Referencing Data.
 
-### Embedded Data
+#### Embedded Data
+Embedding data is just nesting other mongoose schema's or plain js objects inside of another schema.
+
+### Intro to Authentication
+HTTP is a stateless protocol. To store the state we need to leverage 'sessions'.
