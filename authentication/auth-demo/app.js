@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
-app.get('/secret', (req, res) => {
+app.get('/secret', isLoggedIn, (req, res) => {
   res.render('secret');
 });
 
@@ -80,9 +80,20 @@ app.post('/login', passport.authenticate('local', {
 
 });
 
+// Logout Routes //
 app.get('/logout', (req, res) => {
-  res.send('logout');
+  // res.send('logging out');
+  req.logout();
+  res.redirect('/');
 });
+
+function isLoggedIn(req, res, next){
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+}
+
 
 app.listen(PORT, () => {
   console.log(`Server up and runninng on Port ${PORT}`)
