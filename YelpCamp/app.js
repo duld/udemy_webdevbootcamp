@@ -96,7 +96,7 @@ app.get('/campgrounds/:id', (req, res) => {
 });
 
 // Render new campground comment form
-app.get('/campgrounds/:id/comments/new', (req, res) => {
+app.get('/campgrounds/:id/comments/new', isLoggedIn, (req, res) => {
   // find campground by id
   Campground.findById(req.params.id)
     .then(campground => {
@@ -108,7 +108,7 @@ app.get('/campgrounds/:id/comments/new', (req, res) => {
 });
 
 // Create a new comment on a campground
-app.post('/campgrounds/:id/comments', (req, res) => {
+app.post('/campgrounds/:id/comments', isLoggedIn, (req, res) => {
   // lookup campground
   Campground.findById(req.params.id)
     .then( campground => { // if we find the campground create a new comment
@@ -159,7 +159,30 @@ app.post('/register', (req, res) => {
 // Show Login form
 app.get('/login', (req, res) => {
   res.render('login');
-})
+});
+
+app.post('/login', passport.authenticate('local', 
+  {
+    successRedirect: '/campgrounds', 
+    failureRedirect: '/login'}), 
+    (req, res) => {
+      // res.send('login logic');
+});
+
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/campgrounds');
+});
+
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()){
+    console.log(req.user)
+    return next();
+  } else {
+    res.redirect('/login');
+  }
+}
 
 // start the server.
 app.listen(PORT, () => {
