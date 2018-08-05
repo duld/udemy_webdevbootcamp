@@ -17,11 +17,18 @@ router.get('/new', isLoggedIn, (req, res) => {
 
 // Create a new comment on a campground
 router.post('/', isLoggedIn, (req, res) => {
+  let commentData = {text: req.body.text, author: req.body.author};
   // lookup campground
   Campground.findById(req.params.id)
     .then( campground => { // if we find the campground create a new comment
-      Comment.create({text: req.body.text, author: req.body.author})
+      Comment.create(commentData)
         .then( comment => {
+          // console.log('Comment username: ', req.user.username);
+          comment.author = {
+            id: req.user._id,
+            username: req.user.username
+          };
+          comment.save();
           // associate the newly created comment with the campground
           campground.comments.push(comment._id);
           campground.save()
