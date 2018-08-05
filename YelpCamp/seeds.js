@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const {Campground} = require('./models/campground');
-const {Comment} = require('./models/comment');
+const Campground = require('./models/campground');
+const Comment = require('./models/comment');
 
 // SEED data
 let comments = [
@@ -25,13 +25,13 @@ let campgrounds = [
     name: "Salmon Creek", 
     image: "https://images.pexels.com/photos/1061640/pexels-photo-1061640.jpeg?auto=compress&cs=tinysrgb&h=350", 
     description: "So named due to an excess of Salmon fishermen who frequented this location. There are no known salmon in or around this location.",
-    comments: [{_id: comments[0]._id}, {_id: comments[1]._id}]
+    // comments: [{_id: comments[0]._id}, {_id: comments[1]._id}]
   },
   {
     name: "Granite Hill", 
     image: "https://t00.deviantart.net/QyuTy1K7Nqumfx7aagdbgl1x7A0=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre00/2fd2/th/pre/i/2013/245/3/f/rapids_and_waterfalls_by_lightningthefox7-d6ktxtu.jpg", 
     description: "Enjoy a firm night's rest. If you crave a rock between your shoulder blades and mosquitos in your nose, look no further!",
-    comments: [{_id: comments[2]._id}]
+    // comments: [{_id: comments[2]._id}]
   }, 
   {
     name: "Bent Fork", 
@@ -62,15 +62,18 @@ const seedDB = () => {
     })
     .catch( err => console.log(err));
   
-  Comment.remove({})
-    .then(() => {
-      Comment.insertMany(comments)
-      .then(() => console.log('--> comments inserted'))
-      .catch( err => {
-        console.log('There was a problem seeding the comments!');
-        console.log(err);
-      });
-    })
+  // Comment.remove({})
+  //   .then(() => {
+  //     Comment.insertMany(comments)
+  //     .then(() => console.log('--> comments inserted'))
+  //     .catch( err => {
+  //       console.log('There was a problem seeding the comments!');
+  //       console.log(err);
+  //     });
+  //   })
+    Comment.remove({})
+      .then(() => console.log('--> comments removed'))
+      .catch(err => console.log(err));
 }
 
 module.exports = seedDB;
