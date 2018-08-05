@@ -25,7 +25,8 @@ app.set( 'view engine', 'ejs' );
 app.use( bodyParser.urlencoded({extended: true}));
 app.use( express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
-// passport
+
+// Initialize Auth
 app.use( require('express-session')({
   secret: "theGofferAteMySpaghettiSpoon",
   resave: false,
@@ -33,11 +34,13 @@ app.use( require('express-session')({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 // Make ther user object available to ejs
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 });
+
 // tell express to use our routes
 app.use('/', indexRoutes);
 app.use('/campgrounds/:id/comments',commentRoutes);
@@ -51,11 +54,14 @@ passport.deserializeUser(User.deserializeUser());
 
 // Connect to Mongodb //
 mongoose.connect('mongodb://localhost:27017/YelpCamp', {useNewUrlParser: true})
-    .then(() => {
-      console.log('connected to MongoDB');
-      // seedDB();
+  .then(() => {
+    console.log('connected to MongoDB');
+    // seedDB();
     })
-  .catch(err => console.log('There was a problem trying to connect to MongoDB', err));
+  .catch(err => {
+    console.log('There was a problem trying to connect to MongoDB');
+    console.log(err);
+  });
 
 
 
