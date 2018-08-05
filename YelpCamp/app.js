@@ -26,6 +26,11 @@ app.use( require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+})
+
 // Setup Passport //
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
@@ -55,7 +60,7 @@ app.get('/campgrounds', (req, res) => {
       res.render('campgrounds/index', {campgrounds});
     })
     .catch(err => {
-      res.render('index', {})
+      res.render('index')
     });
   // res.render('campgrounds', {campgrounds})
 });
@@ -158,7 +163,7 @@ app.post('/register', (req, res) => {
 
 // Show Login form
 app.get('/login', (req, res) => {
-  res.render('login');
+  res.render('login', {currentUser: req.user});
 });
 
 app.post('/login', passport.authenticate('local', 
