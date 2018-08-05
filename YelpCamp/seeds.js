@@ -50,17 +50,17 @@ let campgrounds = [
 
 const seedDB = () => {
   // clear the database of all current values
-  Campground.remove({})
-    .then(() => {
+  // Campground.remove({})
+  //   .then(() => {
       
-      // Insert seed data
-      Campground.insertMany(campgrounds)
-        .then(() => {
-          console.log('--> campgrounds seeded');
-        })
-        .catch(err => console.log(err));
-    })
-    .catch( err => console.log(err));
+  //     // Insert seed data
+  //     Campground.insertMany(campgrounds)
+  //       .then(() => {
+  //         console.log('--> campgrounds seeded');
+  //       })
+  //       .catch(err => console.log(err));
+  //   })
+  //   .catch( err => console.log(err));
   
   // Comment.remove({})
   //   .then(() => {
@@ -71,9 +71,12 @@ const seedDB = () => {
   //       console.log(err);
   //     });
   //   })
-    Comment.remove({})
-      .then(() => console.log('--> comments removed'))
-      .catch(err => console.log(err));
+  Campground.remove({})
+    .then(() => console.log('--> campgrounds removed'))
+    .catch( err => console.log(err))
+  Comment.remove({})
+    .then(() => console.log('--> comments removed'))
+    .catch(err => console.log(err));
 }
 
 module.exports = seedDB;
