@@ -51,6 +51,28 @@ router.post('/', isLoggedIn, (req, res) => {
     });
 });
 
+// Show form to edit the comment with
+router.get('/:comment_id/edit', (req, res) => {
+  Campground.findById(req.params.id)
+    .then( campground => {
+      Comment.findById(req.params.comment_id)
+        .then( comment => {
+          res.render('comments/edit', {campground, comment});
+        })
+    })
+    .catch( err => {
+      console.log(err);
+      res.redirect('/campgrounds');
+    })
+  
+});
+
+// Edit the using the new text data
+router.put('/:comment_id', (req, res) => {
+  res.send(req.body.text) // temp
+})
+
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()){
     return next();
