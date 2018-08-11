@@ -67,9 +67,7 @@ router.get('/:id/edit', checkCampgroundOwnership, (req, res) => {
 });
 
 // Update Campground Route
-router.put('/:id', (req, res) => {
-  // res.send('put route!');
-  // update campground with new data
+router.put('/:id', checkCampgroundOwnership, (req, res) => {
   Campground.findByIdAndUpdate(req.params.id, req.body.campground)
     .then( campground => {
       res.redirect(`/campgrounds/${req.params.id}`);
@@ -82,7 +80,6 @@ router.put('/:id', (req, res) => {
 
 // Destroy a campground Route
 router.delete('/:id', checkCampgroundOwnership, (req, res) => {
-  // res.send('dont del me!');
   Campground.findByIdAndRemove(req.params.id)
     .then( () => {
       res.redirect('/campgrounds');
