@@ -18,10 +18,12 @@
           <h4><a href=""><%= campground.name %></a></h1>
           <p><%= campground.description %></p>
           <p><em>Submitted By <%=campground.author.username%></em></p>
-          <a class='btn btn-warning' href="/campgrounds/<%=campground._id%>/edit">Edit</a>
-          <form id="delete-form" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
-            <button class="btn btn-danger" type="submit">Delete</button>
-          </form>
+          <% if ( currentUser && campground.author.id.equals(currentUser._id)) { %>
+            <a class='btn btn-warning' href="/campgrounds/<%=campground._id%>/edit">Edit</a>
+            <form id="delete-form" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+              <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+          <% } %>
         </div>
       </div>
       <div class="well">
@@ -35,6 +37,7 @@
               <strong><%=cur.author.username%></strong>
               <span class="pull-right">10 days ago</span>
               <p><%=cur.text%></p>
+              <a class="btn btn-xs btn-warning" href="/campgrounds/<%=campground._id%>/comments/<%=cur._id %>/edit">Edit</a>
             </div>
           </div>
         <% }) %>
